@@ -226,10 +226,10 @@ class NeumorphicToggle extends StatelessWidget {
     return widgets;
   }
 
-  Alignment _alignment() {
+  AlignmentDirectional _alignment() {
     double percentX = selectedIndex / (this.children.length - 1);
     double aligmentX = -1.0 + (2.0 * percentX);
-    return Alignment(aligmentX, 0.0);
+    return AlignmentDirectional(aligmentX, 0.0);
   }
 
   Widget _backgroundAtIndex(int index) {
