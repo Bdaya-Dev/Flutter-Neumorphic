@@ -11,8 +11,8 @@ Shader getGradientShader(
   final currentIntensity = intensity * (3 / 5);
 
   final Gradient gradient = LinearGradient(
-    begin: Alignment(source.dx, source.dy),
-    end: Alignment(sourceInvert.dx, sourceInvert.dy),
+    begin: AlignmentDirectional(source.dx, source.dy),
+    end: AlignmentDirectional(sourceInvert.dx, sourceInvert.dy),
     colors: <Color>[
       NeumorphicColors.gradientShaderDarkColor(intensity: currentIntensity),
       NeumorphicColors.gradientShaderWhiteColor(

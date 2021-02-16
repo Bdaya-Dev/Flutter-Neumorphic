@@ -176,7 +176,7 @@ class _NeumorphicSliderState extends State<NeumorphicSlider> {
           child: _generateSlider(context),
         ),
         Align(
-            alignment: Alignment(
+            alignment: AlignmentDirectional(
                 //because left = -1 & right = 1, so the "width" = 2, and minValue = 1
                 (widget.percent * 2) - 1,
                 0),

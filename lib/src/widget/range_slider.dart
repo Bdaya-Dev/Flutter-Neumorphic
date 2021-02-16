@@ -205,7 +205,7 @@ class _NeumorphicRangeSliderState extends State<NeumorphicRangeSlider> {
           child: _generateSlider(context),
         ),
         Align(
-          alignment: Alignment(
+          alignment: AlignmentDirectional(
               //because left = -1 & right = 1, so the "width" = 2, and minValue = 1
               (widget.percentLow * 2) - 1,
               0),
@@ -229,7 +229,7 @@ class _NeumorphicRangeSliderState extends State<NeumorphicRangeSlider> {
                   _generateThumb(context, thumbSize, widget.style.variant)),
         ),
         Align(
-          alignment: Alignment(
+          alignment: AlignmentDirectional(
               //because left = -1 & right = 1, so the "width" = 2, and minValue = 1
               (widget.percentHigh * 2) - 1,
               0),
