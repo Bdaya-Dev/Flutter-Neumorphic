@@ -117,63 +117,66 @@ Expanded(
           ),
           SizedBox(width: 12),
           Expanded(
-            child: NeumorphicToggle(
-              height: 50,
-              style: NeumorphicToggleStyle(
-                  //backgroundColor: Colors.red,
+            child: Directionality(
+              textDirection: TextDirection.ltr,
+              child: NeumorphicToggle(
+                height: 50,
+                style: NeumorphicToggleStyle(
+                    //backgroundColor: Colors.red,
+                    ),
+                selectedIndex: _selectedIndex,
+                displayForegroundOnlyIfSelected: true,
+                children: [
+                  ToggleElement(
+                    background: Center(
+                        child: Text(
+                      "This week",
+                      style: TextStyle(fontWeight: FontWeight.w500),
+                    )),
+                    foreground: Center(
+                        child: Text(
+                      "This week",
+                      style: TextStyle(fontWeight: FontWeight.w700),
+                    )),
                   ),
-              selectedIndex: _selectedIndex,
-              displayForegroundOnlyIfSelected: true,
-              children: [
-                ToggleElement(
-                  background: Center(
-                      child: Text(
-                    "This week",
-                    style: TextStyle(fontWeight: FontWeight.w500),
-                  )),
-                  foreground: Center(
-                      child: Text(
-                    "This week",
-                    style: TextStyle(fontWeight: FontWeight.w700),
-                  )),
+                  ToggleElement(
+                    background: Center(
+                        child: Text(
+                      "This month",
+                      style: TextStyle(fontWeight: FontWeight.w500),
+                    )),
+                    foreground: Center(
+                        child: Text(
+                      "This month",
+                      style: TextStyle(fontWeight: FontWeight.w700),
+                    )),
+                  ),
+                  ToggleElement(
+                    background: Center(
+                        child: Text(
+                      "This year",
+                      style: TextStyle(fontWeight: FontWeight.w500),
+                    )),
+                    foreground: Center(
+                        child: Text(
+                      "This year",
+                      style: TextStyle(fontWeight: FontWeight.w700),
+                    )),
+                  )
+                ],
+                thumb: Neumorphic(
+                  style: NeumorphicStyle(
+                    boxShape: NeumorphicBoxShape.roundRect(
+                        BorderRadius.all(Radius.circular(12))),
+                  ),
                 ),
-                ToggleElement(
-                  background: Center(
-                      child: Text(
-                    "This month",
-                    style: TextStyle(fontWeight: FontWeight.w500),
-                  )),
-                  foreground: Center(
-                      child: Text(
-                    "This month",
-                    style: TextStyle(fontWeight: FontWeight.w700),
-                  )),
-                ),
-                ToggleElement(
-                  background: Center(
-                      child: Text(
-                    "This year",
-                    style: TextStyle(fontWeight: FontWeight.w500),
-                  )),
-                  foreground: Center(
-                      child: Text(
-                    "This year",
-                    style: TextStyle(fontWeight: FontWeight.w700),
-                  )),
-                )
-              ],
-              thumb: Neumorphic(
-                style: NeumorphicStyle(
-                  boxShape: NeumorphicBoxShape.roundRect(
-                      BorderRadius.all(Radius.circular(12))),
-                ),
+                onChanged: (value) {
+                  setState(() {
+                    _selectedIndex = value;
+                    print("_firstSelected: $_selectedIndex");
+                  });
+                },
               ),
-              onChanged: (value) {
-                setState(() {
-                  _selectedIndex = value;
-                  print("_firstSelected: $_selectedIndex");
-                });
-              },
             ),
           ),
         ],
