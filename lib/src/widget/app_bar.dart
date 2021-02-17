@@ -154,7 +154,10 @@ class NeumorphicAppBarState extends State<NeumorphicAppBar> {
         leading = NeumorphicButton(
           padding: widget.buttonPadding,
           style: widget.buttonStyle,
-          child: nTheme.current.appBarTheme.icons.menuIcon,
+          child: (nTheme?.current ?? neumorphicDefaultTheme)
+              .appBarTheme
+              .icons
+              .menuIcon,
           onPressed: _handleDrawerButton,
           tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
         );

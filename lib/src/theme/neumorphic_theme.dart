@@ -111,7 +111,7 @@ class NeumorphicTheme extends StatefulWidget {
   static NeumorphicThemeData currentTheme(BuildContext context) {
     try {
       final provider = NeumorphicTheme.of(context);
-      return provider.current;
+      return provider?.current ?? neumorphicDefaultTheme;
     } catch (t) {
       return neumorphicDefaultTheme;
     }

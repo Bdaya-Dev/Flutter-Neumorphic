@@ -16,7 +16,10 @@ class NeumorphicCloseButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final nThemeIcons = NeumorphicTheme.of(context).current.appBarTheme.icons;
+    final nThemeIcons =
+        (NeumorphicTheme.of(context)?.current ?? neumorphicDefaultTheme)
+            .appBarTheme
+            .icons;
     return NeumorphicButton(
       style: style,
       padding: padding,
