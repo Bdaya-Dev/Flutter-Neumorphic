@@ -76,8 +76,12 @@ class NeumorphicDecorationPainter extends BoxPainter {
 
     final bool invalidateDepth = this._cache.updateStyleDepth(style.depth, 3);
     if (invalidateDepth) {
-      _blackShadowPaint..maskFilter = _cache.maskFilterBlur;
-      _whiteShadowPaint..maskFilter = _cache.maskFilterBlur;
+      try {
+        _blackShadowPaint..maskFilter = _cache.maskFilterBlur;
+        _whiteShadowPaint..maskFilter = _cache.maskFilterBlur;
+      } catch (e) {
+        //print('Error in ');
+      }
     }
 
     final bool invalidateShadowColors = this._cache.updateShadowColor(
