@@ -123,8 +123,8 @@ class NeumorphicCheckbox extends StatelessWidget {
   final NeumorphicCheckboxStyle style;
   final NeumorphicCheckboxListener onChanged;
   final isEnabled;
-  final EdgeInsets padding;
-  final EdgeInsets margin;
+  final EdgeInsetsGeometry padding;
+  final EdgeInsetsGeometry margin;
   final Duration duration;
   final Curve curve;
 
