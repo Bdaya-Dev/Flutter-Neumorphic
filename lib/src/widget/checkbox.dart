@@ -15,16 +15,16 @@ typedef void NeumorphicCheckboxListener<T>(T value);
 /// selectedColor : the color when checked (default: theme.accent)
 ///
 class NeumorphicCheckboxStyle {
-  final double selectedDepth;
-  final double unselectedDepth;
-  final bool disableDepth;
-  final double selectedIntensity;
+  final double? selectedDepth;
+  final double? unselectedDepth;
+  final bool? disableDepth;
+  final double? selectedIntensity;
   final double unselectedIntensity;
-  final Color selectedColor;
-  final Color disabledColor;
-  final LightSource lightSource;
+  final Color? selectedColor;
+  final Color? disabledColor;
+  final LightSource? lightSource;
   final NeumorphicBorder border;
-  final NeumorphicBoxShape boxShape;
+  final NeumorphicBoxShape? boxShape;
 
   const NeumorphicCheckboxStyle({
     this.selectedDepth,
@@ -130,8 +130,8 @@ class NeumorphicCheckbox extends StatelessWidget {
 
   NeumorphicCheckbox({
     this.style = const NeumorphicCheckboxStyle(),
-    @required this.value,
-    @required this.onChanged,
+    required this.value,
+    required this.onChanged,
     this.curve = Neumorphic.DEFAULT_CURVE,
     this.duration = Neumorphic.DEFAULT_DURATION,
     this.padding = const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
@@ -168,7 +168,7 @@ class NeumorphicCheckbox extends StatelessWidget {
       depth = 0;
     }
 
-    Color color = isSelected ? selectedColor : null;
+    Color? color = isSelected ? selectedColor : null;
     if (!this.isEnabled) {
       color = null;
     }
