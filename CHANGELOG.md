@@ -1,3 +1,11 @@
+## 3.2.0
+
+* Remove generated localization class ([#215](https://github.com/Idean/Flutter-Neumorphic/pull/215))
+
+## 3.1.1
+
+* Addresses a conflict with Flutter 2.5.0 ([#239](https://github.com/Idean/Flutter-Neumorphic/issues/239)).
+
 ## 3.1.0
 
 * Null safety
