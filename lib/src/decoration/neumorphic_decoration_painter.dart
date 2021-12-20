@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 
@@ -129,20 +128,38 @@ class NeumorphicDecorationPainter extends BoxPainter {
 
     if (renderingByPath) {
       for (var subPath in _cache.subPaths) {
-        _drawElement(offset: offset, canvas: canvas, path: subPath);
+        _drawElement(
+          offset: offset,
+          canvas: canvas,
+          path: subPath,
+          textDirection: configuration.textDirection ?? TextDirection.ltr,
+        );
       }
     } else {
-      _drawElement(offset: offset, canvas: canvas, path: _cache.path);
+      _drawElement(
+          offset: offset,
+          canvas: canvas,
+          path: _cache.path,
+          textDirection: configuration.textDirection ?? TextDirection.ltr);
     }
   }
 
-  void _drawElement(
-      {required Canvas canvas, required Offset offset, required Path path}) {
+  void _drawElement({
+    required Canvas canvas,
+    required Offset offset,
+    required Path path,
+    required TextDirection textDirection,
+  }) {
     if (drawBackground) {
       _drawBackground(offset: offset, canvas: canvas, path: path);
     }
     if (this.drawGradient) {
-      _drawGradient(offset: offset, canvas: canvas, path: path);
+      _drawGradient(
+        offset: offset,
+        canvas: canvas,
+        path: path,
+        textDirection: textDirection,
+      );
     }
     if (style.border.isEnabled) {
       _drawBorder(canvas: canvas, offset: offset, path: path);
@@ -196,8 +213,12 @@ class NeumorphicDecorationPainter extends BoxPainter {
     }
   }
 
-  void _drawGradient(
-      {required Canvas canvas, required Offset offset, required Path path}) {
+  void _drawGradient({
+    required Canvas canvas,
+    required Offset offset,
+    required Path path,
+    required TextDirection textDirection,
+  }) {
     if (style.shape == NeumorphicShape.concave ||
         style.shape == NeumorphicShape.convex) {
       final pathRect = path.getBounds();
@@ -209,6 +230,7 @@ class NeumorphicDecorationPainter extends BoxPainter {
           source: style.shape == NeumorphicShape.concave
               ? this.style.lightSource
               : this.style.lightSource.invert(),
+          textDirection: textDirection,
         );
 
       canvas

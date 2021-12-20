@@ -1,6 +1,5 @@
 import 'dart:ui' as ui;
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 
@@ -188,6 +187,7 @@ class NeumorphicDecorationTextPainter extends BoxPainter {
           ..shader = getGradientShader(
             gradientRect: Rect.fromLTRB(0, 0, _cache.width, _cache.height),
             intensity: style.surfaceIntensity,
+            textDirection: configuration.textDirection ?? ui.TextDirection.ltr,
             source: style.shape == NeumorphicShape.concave
                 ? this.style.lightSource
                 : this.style.lightSource.invert(),

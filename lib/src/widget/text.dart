@@ -1,12 +1,8 @@
 import 'dart:ui' as ui show FontFeature;
 
-import 'package:flutter/material.dart' as material;
-import 'package:flutter/widgets.dart';
-import 'package:flutter_neumorphic/src/decoration/neumorphic_text_decorations.dart';
+import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
-import '../../flutter_neumorphic.dart';
-import '../theme/neumorphic_theme.dart';
-
+import '../decoration/neumorphic_text_decorations.dart';
 export '../decoration/neumorphic_decorations.dart';
 export '../neumorphic_box_shape.dart';
 export '../theme/neumorphic_theme.dart';
@@ -180,7 +176,7 @@ class NeumorphicText extends StatelessWidget {
   }
 }
 
-class _NeumorphicText extends material.StatefulWidget {
+class _NeumorphicText extends StatefulWidget {
   final String text;
 
   final NeumorphicStyle style;
@@ -204,7 +200,7 @@ class _NeumorphicText extends material.StatefulWidget {
   __NeumorphicTextState createState() => __NeumorphicTextState();
 }
 
-class __NeumorphicTextState extends material.State<_NeumorphicText> {
+class __NeumorphicTextState extends State<_NeumorphicText> {
   @override
   Widget build(BuildContext context) {
     final TextPainter _textPainter = TextPainter(

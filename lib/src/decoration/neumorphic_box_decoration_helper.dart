@@ -2,10 +2,12 @@ import 'package:flutter/widgets.dart';
 
 import '../theme/theme.dart';
 
-Shader getGradientShader(
-    {required Rect gradientRect,
-    required LightSource source,
-    double intensity = 0.25}) {
+Shader getGradientShader({
+  required Rect gradientRect,
+  required LightSource source,
+  required TextDirection textDirection,
+  double intensity = 0.25,
+}) {
   var sourceInvert = source.invert();
 
   final currentIntensity = intensity * (3 / 5);
@@ -24,5 +26,5 @@ Shader getGradientShader(
     ],
   );
 
-  return gradient.createShader(gradientRect);
+  return gradient.createShader(gradientRect, textDirection: textDirection);
 }

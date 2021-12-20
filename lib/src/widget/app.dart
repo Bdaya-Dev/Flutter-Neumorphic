@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 class NeumorphicApp extends StatelessWidget {
@@ -77,24 +76,38 @@ class NeumorphicApp extends StatelessWidget {
 
     if (color is MaterialColor) {
       return ThemeData(
-        primarySwatch: color,
         textTheme: theme.textTheme,
         iconTheme: theme.iconTheme,
         scaffoldBackgroundColor: theme.baseColor,
+        colorScheme: ColorScheme.fromSwatch(primarySwatch: color),
       );
     }
 
+    final brightness = ThemeData.estimateBrightnessForColor(theme.baseColor);
+    /*
+     secondary: theme.variantColor,
+        primary: theme.accentColor,
+        brightness: brightness,
+        surface: theme.baseColor,
+        background: theme.baseColor,
+     */
     return ThemeData(
-      primaryColor: theme.accentColor,
-      accentColor: theme.variantColor,
       iconTheme: theme.iconTheme,
-      brightness: ThemeData.estimateBrightnessForColor(theme.baseColor),
-      primaryColorBrightness:
-          ThemeData.estimateBrightnessForColor(theme.accentColor),
-      accentColorBrightness:
-          ThemeData.estimateBrightnessForColor(theme.variantColor),
       textTheme: theme.textTheme,
       scaffoldBackgroundColor: theme.baseColor,
+      colorScheme: brightness == Brightness.light
+          ? ColorScheme.light(
+              primary: theme.accentColor,
+              secondary: theme.variantColor,
+              surface: theme.baseColor,
+              background: theme.baseColor,
+            )
+          : ColorScheme.dark(
+              primary: theme.accentColor,
+              secondary: theme.variantColor,
+              surface: theme.baseColor,
+              background: theme.baseColor,
+            ),
     );
   }
 

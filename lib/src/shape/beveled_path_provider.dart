@@ -1,11 +1,11 @@
 import '../../flutter_neumorphic.dart';
-import 'neumorphic_path_provider.dart';
 import 'dart:math' as math;
 
 class BeveledPathProvider extends NeumorphicPathProvider {
   final BorderRadius borderRadius;
 
-  const BeveledPathProvider(this.borderRadius, {Listenable? reclip});
+  const BeveledPathProvider(this.borderRadius, {Listenable? reclip})
+      : super(reclip: reclip);
 
   @override
   bool shouldReclip(NeumorphicPathProvider oldClipper) {
